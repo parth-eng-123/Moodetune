@@ -1,7 +1,0 @@
-streamlit>=1.32
-opencv-python-headless>=4.9
-deepface>=0.0.93
-tensorflow>=2.15
-tf-keras>=2.15
-numpy>=1.26
-pillow>=10.0
