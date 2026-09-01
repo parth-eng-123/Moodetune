@@ -1,8 +1,10 @@
 fastapi
 uvicorn
 joblib
+dill
 numpy
 opencv-python-headless
 pillow
 python-multipart
-keras
+tensorflow-cpu==2.13.0
+keras==2.13.0
