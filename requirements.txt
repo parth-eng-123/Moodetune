@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-numpy
-opencv-python-headless
-pillow
-python-multipart
-dill
-tf-keras
-tensorflow
