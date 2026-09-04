@@ -7,7 +7,7 @@ import random
 st.set_page_config(page_title="MoTune 🎵", page_icon="🎵", layout="centered")
 
 # ⚠️ Replace this with your Render URL after deploying
-BACKEND_URL = "https://motune-api.onrender.com"
+BACKEND_URL = "https://moodtune-1.onrender.com"
 
 MOOD_EMOJI = {
     "happy": "😄", "sad": "😢", "angry": "😠",
