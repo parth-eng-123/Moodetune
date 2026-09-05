@@ -1,122 +1,113 @@
-# ðŸŽµ MoTune â€” Mood-Based Music Recommender
+# MoTune - Mood-Based Music Recommender
 
-> Detects your facial emotion in real time using a CNN and recommends songs that match your mood.
-
----
-
-## ðŸš€ Live Demo
-
-ðŸŒ **Streamlit App:** [Open MoTune](https://moodetune-dxfr.streamlit.app)  
-âš™ï¸ **Backend API:** [https://moodtune-1.onrender.com](https://moodtune-1.onrender.com)
+Detects your facial emotion in real time using a CNN and recommends songs that match your mood.
 
 ---
 
-## ðŸ§  How It Works
+## Live Demo
+
+- Streamlit App: https://moodetune-dxfr.streamlit.app
+- Backend API: https://moodtune-1.onrender.com
+
+---
+
+## How It Works
 
 ```
-Your Face ðŸ“¸
-     â†“
-Streamlit (camera captures photo)
-     â†“
+Your Face (Camera)
+      |
+Streamlit (captures photo)
+      |
 FastAPI on Render (receives photo)
-     â†“
-ONNX CNN Model predicts emotion
-     â†“
+      |
+ONNX CNN Model (predicts emotion)
+      |
 Returns mood + confidence + songs
-     â†“
-Streamlit displays result ðŸŽµ
+      |
+Streamlit displays result
 ```
 
 ---
 
-## ðŸ—ï¸ Architecture
+## Architecture
 
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| Frontend | Streamlit | Camera UI + Song display |
-| Backend | FastAPI + Uvicorn | API server |
-| ML Model | CNN (ONNX format) | Emotion detection |
-| Hosting | Render.com | Backend deployment |
-| Model Training | Google Colab | FER2013 dataset |
-
----
-
-## ðŸ¤– CNN Model
-
-- **Dataset:** FER2013 (35,000+ facial images)
-- **Classes:** 7 emotions â€” angry, disgust, fear, happy, neutral, sad, surprise
-- **Architecture:** 3x Conv2D + BatchNorm + MaxPooling + Dense layers
-- **Format:** ONNX (lightweight, no TensorFlow needed at runtime)
-- **Input:** 48x48 grayscale face image
-- **Output:** Emotion probabilities (softmax)
+| Component      | Technology         | Purpose                  |
+|----------------|--------------------|--------------------------|
+| Frontend       | Streamlit          | Camera UI + Song display |
+| Backend        | FastAPI + Uvicorn  | API server               |
+| ML Model       | CNN (ONNX format)  | Emotion detection        |
+| Hosting        | Render.com         | Backend deployment       |
+| Model Training | Google Colab       | FER2013 dataset          |
 
 ---
 
-## ðŸ“ Project Structure
+## CNN Model Details
+
+- Dataset: FER2013 (35,000+ facial images)
+- Classes: 7 emotions - angry, disgust, fear, happy, neutral, sad, surprise
+- Architecture: 3x Conv2D + BatchNorm + MaxPooling + Dense layers
+- Format: ONNX (lightweight, no TensorFlow needed at runtime)
+- Input: 48x48 grayscale face image
+- Output: Emotion probabilities (softmax)
+
+---
+
+## Project Structure
 
 ```
 Moodetune/
-â”œâ”€â”€ app.py                  # Streamlit frontend
-â”œâ”€â”€ main.py                 # FastAPI backend
-â”œâ”€â”€ motune_model.onnx       # Trained CNN model (ONNX)
-â”œâ”€â”€ motune_model.joblib     # Trained CNN model (joblib)
-â”œâ”€â”€ requirements.txt        # Python dependencies
-â”œâ”€â”€ render.yaml             # Render deployment config
-â””â”€â”€ README.md               # This file
+|-- app.py                  # Streamlit frontend
+|-- main.py                 # FastAPI backend
+|-- motune_model.onnx       # Trained CNN model (ONNX)
+|-- motune_model.joblib     # Trained CNN model (joblib)
+|-- requirements.txt        # Python dependencies
+|-- render.yaml             # Render deployment config
+|-- README.md               # This file
 ```
 
 ---
 
-## âš™ï¸ Tech Stack
+## Tech Stack
 
-- **Python** â€” Core language
-- **TensorFlow/Keras** â€” CNN model training
-- **ONNX Runtime** â€” Lightweight model inference
-- **OpenCV** â€” Image preprocessing
-- **FastAPI** â€” REST API backend
-- **Uvicorn** â€” ASGI server
-- **Streamlit** â€” Frontend web app
-- **Render** â€” Cloud deployment
-- **Joblib** â€” Model serialization
-- **Kaggle API** â€” Dataset download
-
----
-
-## ðŸŽ¯ Features
-
-- âœ… Real-time facial emotion detection via camera
-- âœ… 7 emotion classes detection
-- âœ… Song recommendations based on mood
-- âœ… Reassess Mood button for re-detection
-- âœ… Shuffle Songs button
-- âœ… YouTube links for instant playback
-- âœ… Mobile friendly
-- âœ… Android APK available
+- Python - Core language
+- TensorFlow/Keras - CNN model training
+- ONNX Runtime - Lightweight model inference
+- OpenCV - Image preprocessing
+- FastAPI - REST API backend
+- Uvicorn - ASGI server
+- Streamlit - Frontend web app
+- Render - Cloud deployment
+- Joblib - Model serialization
+- Kaggle API - Dataset download
 
 ---
 
-## ðŸ› ï¸ Run Locally
+## Features
+
+- Real-time facial emotion detection via camera
+- 7 emotion classes detection
+- Song recommendations based on mood
+- Reassess Mood button for re-detection
+- Shuffle Songs button
+- YouTube links for instant playback
+- Mobile friendly
+- Android APK available
+
+---
+
+## Run Locally
 
 ```bash
-# Clone repo
 git clone https://github.com/parth-eng-123/Moodetune.git
 cd Moodetune
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Run Streamlit frontend
 streamlit run app.py
-
-# Run FastAPI backend (separate terminal)
 uvicorn main:app --host 0.0.0.0 --port 10000
 ```
 
 ---
 
-## ðŸ“Š Model Training
-
-Model was trained in Google Colab on FER2013 dataset:
+## Model Training Code
 
 ```python
 model = Sequential([
@@ -134,13 +125,13 @@ model = Sequential([
 
 ---
 
-## ðŸ‘¨â€ðŸ’» Developer
+## Developer
 
-**Parth** â€” GNIOT Capstone Project  
-GitHub: [@parth-eng-123](https://github.com/parth-eng-123)
+Parth - GNIOT Capstone Project
+GitHub: https://github.com/parth-eng-123
 
 ---
 
-## ðŸ“„ License
+## License
 
 This project is for educational purposes as part of the GNIOT Capstone Project.
